@@ -7,15 +7,28 @@
     <title>Guess the Number Game | Linda Green & Sabrina Ira</title>
   </head>
   <body>
+    <!-- title -->
     <h1>Guess the number!</h1>
     <p>Guess the number between 1 and 100!</p>
+    <br />
+    <br />
+
+    <!-- outer container -->
+    <div class="outer-box"><button id="reset">Start Over</button><br /></div>
     <p class="currentScore">Current Score:</p>
     <p class="highScore">High Score:</p>
-    <input type="text" placeholder="Place your guess here!" />
-    <button type="submit" id="check">Check</button><br />
-    <button id="reset">Start Over</button><br />
-    <p class="response"></p>
-    <ul id="history"></ul>
+
+    <!-- inner container -->
+    <div class="inner-box">
+      <input type="text" onfocus=this.value='' placeholder="Place your guess here!" />
+      <button type="submit" id="check">Check</button><br />
+      <p class="response"></p>
+    </div>
+
+    <!-- history container-->
+    <div class="history-container">
+      <ul id="history"></ul>
+    </div>
 
     <!-- JavaScript file stays here -->
     <script src="./script.js"></script>
