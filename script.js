@@ -28,8 +28,10 @@ addEventListener('DOMContentLoaded', () => {
    * * Since Math.random() alone returns floating integers,
    * * you'll want to use Math.floor() to round it up to the nearest whole number.
    */
-  const generateRandomNum = () => Math.floor(Math.random() * 100) + 1;
-  randomNum = generateRandomNum();
+  let randomNum = Math.floor(Math.random() * 100) + 1;
+  const generateRandomNum = () => {
+    return Math.floor(Math.random() * 100) + 1;
+  };
 
   /**
    * & Math.random() gives a decimal between 0 (inclusive) and 1 (exclusive)
@@ -169,6 +171,30 @@ addEventListener('DOMContentLoaded', () => {
     btn.disabled = true; // Disables the check button from being clicked
   }
 
+  /**
+   * ? I created a test and debugging development,
+   * ? so that the dynamic elements are more accessible to test
+   */
+  const winBtn = document.getElementById('winTrigger');
+  const loseBtn = document.getElementById('loseTrigger');
+  winBtn.addEventListener('click', handleWin);
+  loseBtn.addEventListener('click', handleLoss);
+
+  function clearDynamicElements() {
+    const dynamicElements = innerBox.querySelectorAll(
+      'h2, h3, button.resetBtn, p:not(#result), .secretNum, img'
+    );
+    dynamicElements.forEach((el) => el.remove());
+  }
+
+  const toggleDebugBtn = document.getElementById('toggleDebug');
+  const debugSection = document.querySelector('.debug');
+
+  toggleDebugBtn.addEventListener('click', () => {
+    debugSection.style.display =
+      debugSection.style.display === 'none' ? 'flex' : 'none';
+  });
+
   // ^ This is the event listener function for the button when the user "clicks" on it.
   btn.addEventListener('click', () => {
     /**
@@ -238,11 +264,11 @@ addEventListener('DOMContentLoaded', () => {
     input.disabled = false;
     btn.disabled = false;
 
+    // update the displayed secret number text
+    secretNum.innerText = `${randomNum}`;
+
     // Remove dynamic elements
-    const dynamicElements = innerBox.querySelectorAll(
-      'h2, h3, button.resetBtn, p, .secretNum, img'
-    );
-    dynamicElements.forEach((el) => el.remove());
+    clearDynamicElements();
 
     msg.textContent = 'Guess a number between 1 and 100!';
     // clean up the styles for win and game-over of InnerBox div
