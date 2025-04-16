@@ -1,6 +1,7 @@
-# for OS (Windows/Mac) generated files
 /*.zip
+.vscode/
 
+# for OS (Windows/Mac) generated files
 # Windows
 Thumbs.db
 desktop.ini

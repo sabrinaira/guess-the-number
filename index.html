@@ -8,28 +8,45 @@
   </head>
   <body>
     <!-- title -->
-    <h1>Guess the number!</h1>
-    <p>Guess the number between 1 and 100!</p>
-    <br />
-    <br />
+    <header>
+      <img src="./assets/numbers.webp" alt="numbers gif">
+      <div>
+        <h1>Guess the number!</h1>
+        <h2>Guess the number between 1 and 100!</h2>
+      </div>
+    </header>
 
+    <section class="game-center">
     <!-- outer container -->
-    <div class="outer-box"><button id="reset">Start Over</button><br /></div>
-    <p class="currentScore">Current Score:</p>
-    <p class="highScore">High Score:</p>
-
+    <div class="outer-box">
+      <div class="top-bar">
+        <div class="scores">
+          <!-- Wrapped the scores in a new child div -->
+          <p class="currentScore">Current Score:</p>
+          <p class="highScore">High Score:</p>
+        </div>
+        <!-- Reset Game button is also in the same div as the scores -->
+        <button type="button" id="reset" class="reset-button">Reset</button>
+      </div>
     <!-- inner container -->
+    <img class="inner-image" src="./assets/wheel.webp" alt="Number Wheel Gif">
     <div class="inner-box">
       <input type="text" onfocus=this.value='' placeholder="Place your guess here!" />
-      <button type="submit" id="check">Check</button><br />
-      <p class="response"></p>
+      <button type="submit" class="submit-button" id="check">Check</button>
+      <p id="result" class="response">Guess a number between 1 and 100!</p>
     </div>
 
     <!-- history container-->
     <div class="history-container">
+      <h4>Attempted Guesses:</h4>
       <ul id="history"></ul>
     </div>
+  </div>
+</section>
 
+    <footer>
+      <a href="https://github.com/sabrinaira/guess-the-number">Source Code</a>
+    </footer>
     <!-- JavaScript file stays here -->
     <script src="./script.js"></script>
   </body>
