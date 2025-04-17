@@ -11,6 +11,7 @@ addEventListener('DOMContentLoaded', () => {
    * * so that it is easier to type and refer to these variables.
    * ^ This is where we let JavaScript connect the element from the HTML body
    * */
+
   const currentScore = document.querySelector('.currentScore');
   const highScoreHistory = document.querySelector('.highScore');
   const history = document.getElementById('history');
@@ -28,13 +29,15 @@ addEventListener('DOMContentLoaded', () => {
    * * Since Math.random() alone returns floating integers,
    * * you'll want to use Math.floor() to round it up to the nearest whole number.
    */
+
   let randomNum = Math.floor(Math.random() * 100) + 1;
   const generateRandomNum = () => {
+    // arrow function
     return Math.floor(Math.random() * 100) + 1;
   };
 
   /**
-   * & Math.random() gives a decimal between 0 (inclusive) and 1 (exclusive)
+   * & Math.random() gives a decimal between 0 (inclusive) and (exclusive)
    * & Multiplying by 100 gives a range from 0 to just under 100.
    * & Math.floor() then brings it down to a whole number — so 0 to 99.
    * & Adding 1 shifts the whole range to 1 to 100.
@@ -57,6 +60,7 @@ addEventListener('DOMContentLoaded', () => {
   /**
    * & Since we want the user to reset the high score by refreshing the page from their browser, we do not need localStorage at this time.
    */
+
   let highScore = 0;
 
   // & this will store the guessed values that player attempted
@@ -69,7 +73,7 @@ addEventListener('DOMContentLoaded', () => {
   currentScore.textContent = `Current Score: ${score}`;
   highScoreHistory.textContent = `High Score: ${highScore}`;
   copyRight.innerHTML =
-    '&copy; Guess the Number - Game Project by Linda Green & Sabrina Ira';
+    '&copy; 2025 Guess the Number <br> Game Project by Linda Green & Sabrina Ira';
 
   /**
    * ^ This is the function for the Guess History feature.
@@ -77,6 +81,7 @@ addEventListener('DOMContentLoaded', () => {
    * ^ to avoid any repeated values during the game.
    * Project 3 by Linda Green & Sabrina Ira
    */
+
   function updateHistory() {
     history.innerHTML = '';
     // ? I used a for loop to help append each incorrect guess to display on the page
@@ -141,7 +146,7 @@ addEventListener('DOMContentLoaded', () => {
 
   // * Losing Game Function
   function handleLoss() {
-    innerBox.classList.add('game-over');
+    innerBox.classList.add('game-over'); // class="game-over"
     msg.textContent = 'Unfortunately, you lost the game.';
 
     // ^ Creating new image tag
@@ -172,28 +177,29 @@ addEventListener('DOMContentLoaded', () => {
   }
 
   /**
+   * * DEBUGGING STATION
    * ? I created a test and debugging development,
    * ? so that the dynamic elements are more accessible to test
    */
-  const winBtn = document.getElementById('winTrigger');
-  const loseBtn = document.getElementById('loseTrigger');
-  winBtn.addEventListener('click', handleWin);
-  loseBtn.addEventListener('click', handleLoss);
+  // const winBtn = document.getElementById('winTrigger');
+  // const loseBtn = document.getElementById('loseTrigger');
+  // winBtn.addEventListener('click', handleWin);
+  // loseBtn.addEventListener('click', handleLoss);
 
-  function clearDynamicElements() {
-    const dynamicElements = innerBox.querySelectorAll(
-      'h2, h3, button.resetBtn, p:not(#result), .secretNum, img'
-    );
-    dynamicElements.forEach((el) => el.remove());
-  }
+  // function clearDynamicElements() {
+  //   const dynamicElements = innerBox.querySelectorAll(
+  //     'h2, h3, button.resetBtn, p:not(#result), .secretNum, img'
+  //   );
+  //   dynamicElements.forEach((el) => el.remove());
+  // }
 
-  const toggleDebugBtn = document.getElementById('toggleDebug');
-  const debugSection = document.querySelector('.debug');
+  // const toggleDebugBtn = document.getElementById('toggleDebug');
+  // const debugSection = document.querySelector('.debug');
 
-  toggleDebugBtn.addEventListener('click', () => {
-    debugSection.style.display =
-      debugSection.style.display === 'none' ? 'flex' : 'none';
-  });
+  // toggleDebugBtn.addEventListener('click', () => {
+  //   debugSection.style.display =
+  //     debugSection.style.display === 'none' ? 'flex' : 'none';
+  // });
 
   // ^ This is the event listener function for the button when the user "clicks" on it.
   btn.addEventListener('click', () => {
@@ -229,7 +235,7 @@ addEventListener('DOMContentLoaded', () => {
         updateHistory();
       }
       // Project 3 by Linda Green & Sabrina Ira
-      score--; // decrement the score first
+      score--; // decrement the score first (score = score - 1)
       currentScore.textContent = `Current Score: ${score}`;
 
       // Check if the guess is higher than secret number
@@ -261,7 +267,7 @@ addEventListener('DOMContentLoaded', () => {
     currentScore.textContent = `Current Score: ${score}`;
     history.innerHTML = '';
     input.value = '';
-    input.disabled = false;
+    input.disabled = false; // make input accessible again for user to type
     btn.disabled = false;
 
     // update the displayed secret number text
