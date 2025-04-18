@@ -157,9 +157,10 @@ addEventListener('DOMContentLoaded', () => {
     let tryAgain = document.createElement('p');
     tryAgain.textContent =
       "Don't give up. Just try again. Maybe you'll win next time!";
+
     let revealSecret = document.createElement('p');
     revealSecret.textContent = 'My number was: ';
-    revealSecret.appendChild(secretNum);
+    revealSecret.appendChild(secretNum); // <p>My number was: [secretNum]</p>
     // Project 3 by Linda Green & Sabrina Ira
     let tryAgainBtn = document.createElement('button');
     tryAgainBtn.classList.add('resetBtn');
