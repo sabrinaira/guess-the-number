@@ -18,12 +18,14 @@ Player must guess the number between 1 and 100! <br>
 ### Additional Features:
 
 ---
+
 - When a player wins/loses the game, they have their own unique styled elements.
+- Every attempted guess will be recorded visibly to make it easier for players to see which numbers have already been attempted.
 - Game will catch edge cases where:
   - Player submits a number less than 1 or greater than 100.
   - Player submits the same number that was already attempted.
   - If the new high score is higher than the previous high score, the high score will be updated.
-- A new secret number will be generated every time a player clicks the *Reset*, *Play Again*, and *Try Again* button.
+- A new secret number will be generated every time a player clicks the _Reset_, _Play Again_, and _Try Again_ button.
 - Max high score is 10, and is not saved locally. Player can just simply click the refresh button their web browser to reset their high score back to 0.
 
 #### Created by:
