@@ -177,6 +177,13 @@ addEventListener('DOMContentLoaded', () => {
     btn.disabled = true; // Disables the check button from being clicked
   }
 
+  function clearDynamicElements() {
+    const dynamicElements = innerBox.querySelectorAll(
+      'h2, h3, button.resetBtn, p:not(#result), .secretNum, img'
+    );
+    dynamicElements.forEach((el) => el.remove());
+  }
+
   /**
    * * DEBUGGING STATION
    * ? I created a test and debugging development,
@@ -186,13 +193,6 @@ addEventListener('DOMContentLoaded', () => {
   // const loseBtn = document.getElementById('loseTrigger');
   // winBtn.addEventListener('click', handleWin);
   // loseBtn.addEventListener('click', handleLoss);
-
-  // function clearDynamicElements() {
-  //   const dynamicElements = innerBox.querySelectorAll(
-  //     'h2, h3, button.resetBtn, p:not(#result), .secretNum, img'
-  //   );
-  //   dynamicElements.forEach((el) => el.remove());
-  // }
 
   // const toggleDebugBtn = document.getElementById('toggleDebug');
   // const debugSection = document.querySelector('.debug');
