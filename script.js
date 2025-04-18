@@ -134,6 +134,7 @@ addEventListener('DOMContentLoaded', () => {
       highScoreHistory.textContent = `High Score: ${highScore}`;
     }
 
+    resetBtn.style.display = 'none';
     // Finally adding the new elements to the innerBox div
     innerBox.appendChild(image);
     innerBox.appendChild(scoreWin);
@@ -167,6 +168,7 @@ addEventListener('DOMContentLoaded', () => {
     tryAgainBtn.textContent = 'Try Again';
     tryAgainBtn.addEventListener('click', resetGame);
 
+    resetBtn.style.display = 'none';
     // Finally adding the new elements to the innerBox div
     innerBox.appendChild(image);
     innerBox.appendChild(tryAgain);
@@ -270,6 +272,8 @@ addEventListener('DOMContentLoaded', () => {
     input.value = '';
     input.disabled = false; // make input accessible again for user to type
     btn.disabled = false;
+
+    resetBtn.style.display = 'inline-block';
 
     // update the displayed secret number text
     secretNum.innerText = `${randomNum}`;
